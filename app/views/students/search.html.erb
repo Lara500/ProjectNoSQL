@@ -1,0 +1,21 @@
+<div class="container py-4">
+  <div class="p-4 mb-4 bg-light rounded-3">
+
+    <a href="<%= students_path %>" class="btn btn-secondary">Powrót do listy studentów</a>
+
+    <% if @students.present? %>
+      <h2>Wyniki wyszukiwania:</h2>
+      <div class="list-group">
+        <% @students.each do |student| %>
+          <div class="list-group-item">
+            <h3 class="mb-1"><%= student.name %> <%= student.surname %></h3>
+            <p class="mb-1"><strong>Email:</strong> <%= student.email %></p>
+            <%= link_to "Wyświetl dane studenta", student, class: "btn btn-primary" %>
+          </div>
+        <% end %>
+      </div>
+    <% else %>
+      <p>Brak wyników wyszukiwania.</p>
+    <% end %>
+  </div>
+</div>

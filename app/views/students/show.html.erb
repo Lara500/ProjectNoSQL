@@ -1,0 +1,21 @@
+<div class="container py-4">
+  <div class="p-4 mb-4 bg-light rounded-3">
+    <p class="text-success"><%= notice %></p>
+    <%= link_to "Powrót do listy studentów", students_path, class: "btn btn-secondary mb-3" %>
+    <%= link_to "Wiadomości", student_messages_path(@student), class: "btn btn-info mb-3" %>
+
+    <div class="card">
+      <div class="card-body">
+        <h3 class="card-title"><%= @student.name %> <%= @student.surname %></h3>
+        <p class="card-text"><strong>Email:</strong> <%= @student.email %></p>
+      </div>
+    </div>
+
+    <div class="mt-3">
+      <div class="btn-group" role="group" aria-label="Actions">
+        <%= link_to "Edytuj dane studenta", edit_student_path(@student), class: "btn btn-warning me-2 rounded-end" %>
+        <%= button_to "Usuń studenta", @student, method: :delete, data: { confirm: "Czy jesteś pewien?" }, class: "btn btn-danger" %>
+      </div>
+    </div>
+  </div>
+</div>

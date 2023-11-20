@@ -1,0 +1,32 @@
+<div id="<%= dom_id message %>" class="bg-light rounded p-3">
+  <p class="mb-1">
+    <strong>Od:</strong>
+    <%= message.student_email %>
+  </p>
+
+  <p class="mb-1">
+    <strong>Do:</strong>
+    <%= message.recipient_email %>
+  </p>
+
+  <p class="mb-1">
+    <strong>Tytuł:</strong>
+    <%= message.title %>
+  </p>
+
+  <p class="mb-1">
+    <strong>Treść:</strong>
+    <%= message.description %>
+  </p>
+
+  <p class="mb-0">
+    <strong>ID wiadomości:</strong>
+    <%= message.id %>
+  </p>
+
+  <p class="mb-0">
+    <strong>ID studenta:</strong>
+    <%= message.student_id %>
+  </p>
+</div>
+

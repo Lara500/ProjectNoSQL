@@ -1,0 +1,19 @@
+<div class="container py-4">
+  <div class="p-4 mb-4 bg-light rounded-3">
+    <p style="color: green"><%= notice %></p>
+    <div>
+      <%= link_to "Powrót do listy wiadomości", student_messages_path, class: "btn btn-info mr-2" %>
+      <%= link_to "Powrót do listy studentów", students_path, class: "btn btn-secondary mr-2" %>
+    </div>
+
+    <div class="card">
+      <div class="card-body">
+        <%= render @message %>
+      </div>
+    </div>
+
+    <div>
+      <%= button_to "Usuń wiadomość", student_message_path(student_id: @student.id, id: @message.id), method: :delete, data: { confirm: "Czy jesteś pewien?" }, class: "btn btn-danger" %>
+    </div>
+  </div>
+</div>

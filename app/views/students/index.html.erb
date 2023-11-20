@@ -1,0 +1,75 @@
+
+<div class="container py-4">
+  <div class="p-4 mb-4 bg-light rounded-3">
+
+
+      <div class="row">
+        <div class="col">
+          <%= form_tag(search_students_path, method: :get) do %>
+          <div class="input-group">
+            <label class="form-label" for="form1">Wyszukaj studenta po imieniu, nazwisku lub ID:</label>
+            <div class="form-outline">
+              <input type="search" id="form1" class="form-control" name="query" value="<%= params[:query] %>" />
+            </div>
+            <div class="col">
+              <button type="submit" class="btn btn-primary">Szukaj</button>
+            </div>
+          </div>
+          <% end %>
+        </div>
+        <div class="col">
+          <%= form_tag(search_student_students_path, method: :get) do %>
+          <div class="input-group">
+            <label class="form-label" for="form2">Wyszukaj studenta po ID wiadomości:</label>
+            <div class="form-outline">
+              <input type="search" id="form2" class="form-control" name="id" value="<%= params[:id] %>" />
+            </div>
+            <div class="col">
+              <button type="submit" class="btn btn-primary">Szukaj</button>
+            </div>
+          </div>
+          <% end %>
+        </div>
+      </div>
+
+
+
+    <div class="container">
+      <h1>Lista studentów</h1>
+
+      <div id="students" class="list-group">
+        <% @students.each do |student| %>
+          <div class="list-group-item">
+            <div class="row">
+              <div class="col">
+                <h3 class="mb-1"><%= student.name %> <%= student.surname %></h3>
+                <p class="mb-1"><strong>Email:</strong> <%= student.email %></p>
+              </div>
+              <div class="col-auto">
+                <%= link_to "Wiadomości", student_messages_path(student), class: "btn btn-info" %>
+              </div>
+              <div class="col-auto">
+                <%= link_to "Wyświetl dane studenta", student, class: "btn btn-primary" %>
+              </div>
+              <div class="col-auto">
+                <%= link_to "Edytuj dane studenta", edit_student_path(student), class: "btn btn-warning" %>
+              </div>
+              <div class="col-auto">
+                <%= button_to "Usuń studenta", student, method: :delete, data: { confirm: "Czy jesteś pewny?" }, class: "btn btn-danger" %>
+              </div>
+
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <div>
+     <%= link_to "Dodaj nowego studenta", new_student_path, class: "btn btn-success" %>
+    </div> 
+  </div>
+</div>
+
+<footer class="my-5 pt-5 text-muted text-center text-small">
+  <p class="mb-1">&copy; Sonia Leszkiewicz 2023</p>
+</footer>

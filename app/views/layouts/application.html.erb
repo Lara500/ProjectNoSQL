@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>NosqlProject</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+
+    <nav class="navbar navbar-dark bg-primary" aria-label="Second navbar example">
+      <div class="container-fluid">
+        <%= link_to 'Wiadomości studenta', root_path, class: "navbar-brand" %>
+      </div>
+    </nav>
+  </head>
+
+  <body>
+    <%= yield %>
+  </body>
+</html>

@@ -1,0 +1,29 @@
+<div class="container py-4">
+  <div class="p-4 mb-4 bg-light rounded-3">
+
+    <p class="text-success"><%= notice %></p>
+    <%= link_to "Powrót do listy studentów", students_path, class: "btn btn-secondary mb-3" %>
+    <h1>Wiadomości</h1>
+
+    <div id="messages" class="list-group">
+      <% @messages.each do |message| %>
+        <div class="list-group-item">
+          <div class="row">
+            <div class="col">
+              <%= render message %>
+            </div>
+            <div class="col-auto">
+                <%= link_to "Wyświetl wiadomość", student_message_path(@student, message), class: "btn btn-primary" %>
+            </div>
+            <div class="col-auto">
+              <%= button_to "Usuń wiadomość", student_message_path(student_id: @student.id, id: message.id), method: :delete, data: { confirm: "Czy jesteś pewien?" }, class: "btn btn-danger" %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+
+    <%= link_to "Dodaj nową wiadomość", new_student_message_path, class: "btn btn-success mt-3" %>
+
+  </div>
+</div>
